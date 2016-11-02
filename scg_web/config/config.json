@@ -1,0 +1,33 @@
+{
+    "development": {
+        "port": 8000,
+        "db": {
+            "host": "45.32.26.96",
+            "user": "root",
+            "username": "root",
+            "password": "choiv9003530",
+            "database": "refigerator",
+            "dialect": "mysql",
+            "logging": true,
+	        "multipleStatements": true,
+            "timezone": "+09:00",
+            "upload_path": "webdata/scg_web/uploads"
+        }
+    },
+    "production": {
+        "port": 8000,
+        "db": {
+            "host": "45.32.26.96",
+            "port": "3306",
+            "user": "root",
+            "username": "root",
+            "password": "choiv9003530",
+            "database": "refrigerator",
+            "dialect": "mysql",
+            "logging": true,
+            "multipleStatements": true,
+            "timezone": "+09:00",
+            "upload_path": "webdata/scg_web/uploads"
+        }
+    }
+}
