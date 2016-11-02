@@ -8,5 +8,6 @@ var http = require('http');
 app.set('port', config.port);
 
 http.createServer(app).listen(app.get('port'));
+console.log('Express server listening on port ' + app.get('port'));
 debug('Express server listening on port ' + app.get('port'));
 
