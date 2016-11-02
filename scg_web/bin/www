@@ -4,7 +4,6 @@ var debug = require('debug')('expressapp');
 var config = require('../config/config.json')[process.env.NODE_ENV || "development"];
 var app = require('../app.js');
 var http = require('http');
-var models = require("../models");
 
 app.set('port', config.port);
 
