@@ -8,8 +8,6 @@ var models = require("../models");
 
 app.set('port', config.port);
 
-models.sequelize.sync().then(function(){
-    http.createServer(app).listen(app.get('port'));
-    debug('Express server listening on port ' + app.get('port'));
-});
+http.createServer(app).listen(app.get('port'));
+debug('Express server listening on port ' + app.get('port'));
 
