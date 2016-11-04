@@ -13,10 +13,19 @@
     "express": "~4.14.0",
     "jade": "~1.11.0",
     "morgan": "~1.7.0",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "sequelize": "^2.0.5",
+    "sequelize-cli": "^1.5.0"
   },
   "main": "app.js",
-  "devDependencies": {},
+    "devDependencies": {
+  "grunt": "^1.0.1",
+  "grunt-contrib-watch": "~0.6.1",
+  "grunt-develop": "~0.4.0",
+  "load-grunt-tasks": "~1.0.0",
+  "request": "~2.51.0",
+  "time-grunt": "~1.0.0"
+},
   "author": "",
   "license": "ISC"
 }
