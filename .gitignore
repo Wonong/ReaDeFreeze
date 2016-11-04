@@ -1,1 +1,8 @@
 # Created by .ignore support plugin (hsz.mobi)
+.idea/dbnavigator.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/samsung_hackathon.iml
+.idea/workspace.xml
+scg_web/node_modules/
+scg_web/public/bower_components/
