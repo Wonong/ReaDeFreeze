@@ -11,4 +11,12 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+router.get('/timeline', function(req, res, next) {
+    res.render('timeline', { title: 'Express' });
+});
+
+router.get('/set', function(req, res, next) {
+  res.render('set', { title: 'Express' });
+});
+
 module.exports = router;
