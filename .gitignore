@@ -4,4 +4,5 @@
 .idea/samsung_hackathon.iml
 .idea/workspace.xml
 scg_web/node_modules/
+scg_web/public/bower_components
 scg_web/node_modules/normalize-package-data/test/normalize.js~
