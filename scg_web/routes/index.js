@@ -15,6 +15,18 @@ router.get('/timeline', function(req, res, next) {
     res.render('timeline', { title: 'Express' });
 });
 
+router.get('/timeline2', function(req, res, next) {
+    res.render('timeline2', { title: 'Express' });
+});
+
+router.get('/update', function(req, res, next) {
+    res.render('update', { title: 'Express' });
+});
+
+router.get('/link', function(req, res, next) {
+    res.render('link', { title: 'Express' });
+});
+
 router.get('/set', function(req, res, next) {
   res.render('set', { title: 'Express' });
 });
