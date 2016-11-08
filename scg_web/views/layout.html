@@ -1,7 +1,71 @@
-doctype html
-html
-  head
-    title= title
-    link(rel='stylesheet', href='/css/style.css')
-  body
-    block content
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- angular.js-->
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+
+
+    <script src="js/core/core.js"></script>
+    <script src="js/controllers/timelineCtrl.js"></script>
+
+    <!-- sb-admin2 css & js-->
+    <link href="bower_components/sb-admin-2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bower_components/sb-admin-2/css/sb-admin-2.css" rel="stylesheet">
+    <link href="bower_components\sb-admin-2\css\plugins\timeline.css" rel="stylesheet" type="text/css">
+    <link href="bower_components\sb-admin-2\css\plugins\morris.css" rel="stylesheet" type="text/css">
+    <link href="bower_components\sb-admin-2\css\plugins\metisMenu\metisMenu.min.css" rel="stylesheet" type="text/css">
+
+    <script src="bower_components/sb-admin-2/js/bootstrap.min.js"></script>
+    <script src="bower_components/sb-admin-2/js/sb-admin-2.js"></script>
+    <script src="bower_components/sb-admin-2/js/plugins/morris/morris.min.js"></script>
+    <script src="bower_components/sb-admin-2/js/plugins/morris/morris-data.js"></script>
+    <script src="bower_components/sb-admin-2/js/plugins/morris/raphael.min.js"></script>
+
+  <!-- Custom CSS and js -->
+  <link href="css/timeline2.css" rel="stylesheet">
+
+  <title></title>
+</head>
+<body ng-app="mainApp">
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse"></button>-->
+            <a class="navbar-brand" href="index.html">SCG</a>
+          </div>
+
+          <!-- /.navbar-sidebar -->
+          <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse" style="height: 1px;">
+              <ul class="nav" id="side-menu">
+                <li><a href="/link"><i class="fa fa-wrench fa-fw"></i>Link</a></li>
+                <li><a href="/Timeline2"><i class="fa fa-sitemap fa-fw"></i>Info</a></li>
+                <li><a href="/update"><i class="fa fa-files-o fa-fw"></i>Update</a></li>
+              </ul>
+            </div>
+            <!-- /.sidebar-collapse -->
+          </div>
+          <!-- /.navbar-static-side -->
+        </nav>
+
+        <ng-view></ng-view>
+    </div>
+</body>
+
+</html>

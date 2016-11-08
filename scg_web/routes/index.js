@@ -6,9 +6,7 @@ var moment = require('moment');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  var today = moment().format("YYYY-MM-DD");
-  var now = moment().format("YYYY-MM-DD HH:mm:ss");
-  res.render('index', { title: 'Express' });
+  res.render('layout', { title: 'Express' });
 });
 
 router.get('/timeline', function(req, res, next) {

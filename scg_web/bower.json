@@ -19,6 +19,7 @@
     "angular": "^1.5.8",
     "jquery": "^3.1.1",
     "bootstrap": "^3.3.7",
-    "sb-admin-2": "*"
+    "sb-admin-2": "*",
+    "angular-route": "^1.5.8"
   }
 }
