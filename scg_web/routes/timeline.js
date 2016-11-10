@@ -13,16 +13,18 @@ var async = require('async');
 // List
 router.get('/list/?*', function(req, res) {
     models.Post.findAll({
-        order : 'seq DESC'
+        order : 'id DESC'
     }).then(function(timelineSvArr) {
         var timelineCliArr = [];
         timelineSvArr.forEach(function(timelineSv) {
             var timelineCli = {
-                seq: timelineSv.seq,
+                id: timelineSv.id,
                 user: timelineSv.user,
                 toTime: moment(timelineSv.toTime).format("YYYY-MM-DD"),
                 mode: timelineSv.mode,
-                device: timelineSv.device
+                device: timelineSv.device,
+                updatedAt : timelineSv.updatedAt,
+                createdAt : timelineSv.createdAt
             };
             timelineCliArr.push(timelineCli);
         });

@@ -1,4 +1,4 @@
-<div id="page-wrapper" style="min-height: 299px;">
+<div id="page-wrapper" style="min-height: 299px;" ng-controller="timelineCtrl">
     <div id="timeline" class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
@@ -6,31 +6,18 @@
                     <i class="fa fa-clock-o fa-fw"></i> Rerigerator Timeline
                 </div>
                 <!-- /.panel-heading -->
-                <div class="panel-body">
+                <div class="panel-body" ng-init="initList()">
                     <ul class="timeline">
-                        <li>
+                        <li ng-repeat="timelinePost in timelineList">
                             <div class="timeline-badge danger"><i class="fa fa-bomb"></i></div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
                                     <h4 class="timeline-title">Mode Changed</h4>
-                                    <p><small class="text-muted"><i class="fa fa-clock-o"></i> 1 hours ago via Android</small></p>
+                                    <p><small class="text-muted"><i class="fa fa-clock-o"></i> 1 hours ago via {{timelinePost.device}}</small></p>
                                 </div>
                                 <div class="timeline-body">
-                                    <p> To 08:00 PM, 02 November 2016</p>
-                                    <p> To Meat & Fish</p>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="timeline-badge danger"><i class="fa fa-bomb"></i></div>
-                            <div class="timeline-panel">
-                                <div class="timeline-heading">
-                                    <h4 class="timeline-title">Mode Init</h4>
-                                    <p><small class="text-muted"><i class="fa fa-clock-o"></i> 6 hours ago via Tizen</small></p>
-                                </div>
-                                <div class="timeline-body">
-                                    <p> To 06:00 PM, 02 November 2016</p>
-                                    <p> To Meat & Fish</p>
+                                    <p>{{timelinePost.toTime}}</p><!--<p> To 08:00 PM, 02 November 2016</p>-->
+                                    <p> {{timelinePost.mode}}</p>
                                 </div>
                             </div>
                         </li>
