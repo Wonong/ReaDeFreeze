@@ -17,7 +17,7 @@
     "production": {
         "port": 8000,
         "db": {
-            "host": "45.32.26.96",
+            "host": "127.0.0.1",
             "port": "3306",
             "user": "root",
             "username": "root",
