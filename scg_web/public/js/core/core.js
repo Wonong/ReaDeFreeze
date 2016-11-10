@@ -12,6 +12,8 @@ app.config(function($routeProvider){
         templateUrl: 'views/link.html'
     }).when('/update', {
         templateUrl: 'views/update.html'
+    }).when('/timeline_db', {
+        templateUrl: 'views/timeline_db.html'
     }).otherwise({
         redirectTo: '/timeline'
     });
