@@ -1,4 +1,20 @@
 $(document).ready(function(){
-   var data = new Date($.now());
-    $("select#toTime>option").attr(Date);
+
+    console.log(data);
+    for(var i=1; i<10; i++){
+        var data = new Date($.now());
+        data.setMinutes(new Date().getMinutes() + 240 + 30*i);
+
+        if(data.getMinutes() < 10) min = "0" + data.getMinutes();
+        else min = data.getMinutes();
+
+        if(data.getHours() < 10) hour = "0" + data.getHours();
+        else hour = data.getHours();
+
+        $("select#toTime option:nth-child(" + i + ")").attr({
+            "value" : data
+        }).html(hour + ":" + min);
+
+    }
+
 });
