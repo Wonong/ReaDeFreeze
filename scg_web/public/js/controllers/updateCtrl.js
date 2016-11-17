@@ -4,13 +4,12 @@
 
 app.controller('updateCtrl',['$scope', '$http' ,'$routeParams', '$rootScope', '$location', function($scope, $http, $routeParams, $rootScope, $location) {
     $scope.submit = function(){
-        console.log("1");
         $http.post('/updateInfo/',{
             user : 'test123',
-            toTime : $scope.toTime,
             device : "Android123",
-            mode : $scope.mode
+            mode : $scope.mode,
+            toTime : $scope.toTime
         });
-        // $location.path("/#/");
+        $location.path("/#/");
     }
 }]);

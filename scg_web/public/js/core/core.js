@@ -5,18 +5,19 @@ var app = angular.module('mainApp', [
 app.config(function($routeProvider){
     $routeProvider
     .when('/', {
-        redirectTo: '/timeline'
+        redirectTo: '/login'
     }).when('/timeline', {
-        templateUrl: 'views/timeline3.html'
-    }).when('/link', {
-        templateUrl: 'views/link.html'
+        templateUrl: 'views/timeline_db.html'
+    }).when('/login', {
+        controller: 'loginCtrl',
+        templateUrl: 'views/login.html'
+    }).when('/signup', {
+        controller: 'loginCtrl',
+        templateUrl: 'views/signup.html'
     }).when('/update', {
         controller: 'updateCtrl',
         templateUrl: 'views/update.html'
-    }).when('/timeline_db', {
-        controller: 'timelineCtrl',
-        templateUrl: 'views/timeline_db.html'
     }).otherwise({
-        redirectTo: '/timeline'
+        redirectTo: '/'
     });
 });

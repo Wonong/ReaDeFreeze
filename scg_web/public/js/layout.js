@@ -11,6 +11,7 @@ $(document).ready(function(){
         if(data.getHours() < 10) hour = "0" + data.getHours();
         else hour = data.getHours();
 
+        data =[data.getFullYear(), data.getMonth()+1, data.getDate()].join('-')+' '+ [data.getHours(), data.getMinutes(), data.getSeconds()].join(':');
         $("select#toTime option:nth-child(" + i + ")").attr({
             "value" : data
         }).html(hour + ":" + min);

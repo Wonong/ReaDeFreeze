@@ -10,13 +10,8 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/updateInfo', function (req, res, next) {
-    console.log(req.body);
     models.Post.create(req.body).then(function(Post){});
 })
 
-router.post('/user_data/', function(req, res, next){
-    console.log(req);
-    models.userData.create(req.body).then(function(userData){});
-    res.render({"message" : success});
-});
+
 module.exports = router;

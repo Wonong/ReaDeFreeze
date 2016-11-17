@@ -20,12 +20,14 @@ router.get('/list/?*', function(req, res) {
             var timelineCli = {
                 id: timelineSv.id,
                 user: timelineSv.user,
-                toTime: moment(timelineSv.toTime).format("YYYY-MM-DD"),
+                toTime: moment(timelineSv.toTime).format("hh:mm"),
                 mode: timelineSv.mode,
-            device: timelineSv.device,
-                updatedAt : timelineSv.updatedAt,
+                device: timelineSv.device,
+                updatedAt : moment(timelineSv.updatedAt).format("YYYY-MM-DD"),
                 createdAt : timelineSv.createdAt
         };
+        if(timelineCli.mode == 1)   timelineCli.mode = "Meat & Fish";
+        else timelineCli.mode = "Cheese & Vegetables";
         timelineCliArr.push(timelineCli);
         });
 
@@ -33,5 +35,22 @@ router.get('/list/?*', function(req, res) {
         res.send(timelineCliArr);
     });
 });
+
+//최근 기록 updated시간이랑 tizenId 보내면 그 시간부터 현재까지에 해당하는 모든 로그 보내기.
+router.get('/time_list/?*', function(req, res){
+    userId = models.User.findOne({
+        where : {
+            tizenId : req.body.tizenId
+        }
+    });
+    models.Post.findAll({
+        order : "id DESC",
+        where : {
+            updatedAt : {$gt : req.body.updatedAt}
+        }
+    }).then(function(timelineArr){
+        res.send(timelineArr);
+    })
+})
 
 module.exports = router;

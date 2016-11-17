@@ -11,3 +11,8 @@ div.form-group{
 button.btn-default{
     margin-left: 5px;
 }
+
+/*login*/
+input.pass{
+    margin-top: 5px;
+}
