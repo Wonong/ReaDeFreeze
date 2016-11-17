@@ -73,7 +73,6 @@ router.get('/time_list/?*', function(req, res){
         }
     }).then(function(data){
         var userId = data.userId;
-
         models.Post.findAll({
             order : "id DESC",
             where : {
