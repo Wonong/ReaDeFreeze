@@ -21,14 +21,6 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false,
             comment: "해당 설정을 지정한 device"
-        }, updatedAt: {
-            type: DataTypes.DATEONLY,
-            allowNull: false,
-            comment: ""
-        }, createdAt : {
-            type: DataTypes.DATEONLY,
-            allowNull: false,
-            comment: ""
         }
     }, {
             tableName: "Defreeze_log",

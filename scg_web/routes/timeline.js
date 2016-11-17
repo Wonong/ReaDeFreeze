@@ -22,11 +22,11 @@ router.get('/list/?*', function(req, res) {
                 user: timelineSv.user,
                 toTime: moment(timelineSv.toTime).format("YYYY-MM-DD"),
                 mode: timelineSv.mode,
-                device: timelineSv.device,
+            device: timelineSv.device,
                 updatedAt : timelineSv.updatedAt,
                 createdAt : timelineSv.createdAt
-            };
-            timelineCliArr.push(timelineCli);
+        };
+        timelineCliArr.push(timelineCli);
         });
 
         res.contentType('application/json');

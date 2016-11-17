@@ -1,0 +1,13 @@
+div#page-wrapper>div{
+    padding-top: 10px;
+
+}
+
+/*information update*/
+div.form-group{
+    margin : 0 10px 10px 10px;
+}
+
+button.btn-default{
+    margin-left: 5px;
+}
