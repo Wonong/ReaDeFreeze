@@ -19,7 +19,7 @@ router.get('/list/?*', function(req, res) {
         timelineSvArr.forEach(function(timelineSv) {
             var timelineCli = {
                 id: timelineSv.id,
-                user: timelineSv.user,
+                userId: timelineSv.userId,
                 toTime: moment(timelineSv.toTime).format("hh:mm"),
                 mode: timelineSv.mode,
                 device: timelineSv.device,

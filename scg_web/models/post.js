@@ -1,7 +1,7 @@
 module.exports = function (sequelize, DataTypes) {
 
     var Post = sequelize.define("Post", {
-        user: {
+        userId: {
             type: DataTypes.STRING,
             allowNull: false,
             comment: "해당 설정을 지정한 user"
