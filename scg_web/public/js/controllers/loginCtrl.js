@@ -24,6 +24,7 @@ app.controller('loginCtrl', ['$scope', '$http', '$window', '$location', function
             else {
                 alert("ID: "+ $scope.user+ " PW: "+ $scope.password+" 성공!");
                 $scope.session = data;
+                $window.location.href= "/#/timeline";
             }
         });
     }
