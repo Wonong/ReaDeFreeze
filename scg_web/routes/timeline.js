@@ -10,7 +10,7 @@ var config = require('../config/config.json')[process.env.NODE_ENV || "developme
 var moment = require('moment');
 var async = require('async');
 
-// List
+// 특정 계정의 로그만을 뽑는다
 router.get('/list/:id', function(req, res) {
     models.Post.findAll({
         order : 'id DESC',
@@ -55,8 +55,6 @@ router.get('/list2/?*', function(req, res) {
                 updatedAt : moment(timelineSv.updatedAt).format("YYYY-MM-DD"),
                 createdAt : timelineSv.createdAt
         };
-        if(timelineCli.mode == 1)   timelineCli.mode = "Meat & Fish";
-        else timelineCli.mode = "Cheese & Vegetables";
         timelineCliArr.push(timelineCli);
         });
 
@@ -75,7 +73,8 @@ router.get('/time_list/?*', function(req, res){
     models.Post.findAll({
         order : "id DESC",
         where : {
-            updatedAt : {$gt : req.query.updatedAt}
+            updatedAt : {$gt : req.query.updatedAt},
+            userId : userId.userId
         }
     }).then(function(timelineArr){
         console.log("timelineArr");
@@ -83,5 +82,20 @@ router.get('/time_list/?*', function(req, res){
         res.send(timelineArr);
     })
 })
+
+//냉장고 설절변경기록 서버에 추기ㅏ
+router.post('/update/',function(res, req){
+   userId = models.User.findOne({
+       where : {
+           tizenId : req.body.tizenId
+       }
+   });
+    models.Post.create({
+        mode : req.body.mode,
+        toTime : req.body.toTime,
+        device : 'Refrigerator',
+        userId : userId
+    }).then(function(Post){});
+});
 
 module.exports = router;

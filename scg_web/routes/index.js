@@ -13,5 +13,14 @@ router.post('/updateInfo', function (req, res, next) {
     models.Post.create(req.body).then(function(Post){});
 })
 
+// 계정의 냉장고 연결 여부 확인을 위함
+router.get('/link/:userId', function(req, res){
+    models.User.findOne(
+        { where : {userId : req.params.userId}}
+    ).then(function(data){
+        res.send(data);
+    })
+})
+
 3
 module.exports = router;
