@@ -3,7 +3,7 @@ $(document).ready(function(){
     console.log(data);
     for(var i=1; i<10; i++){
         var data = new Date($.now());
-        data.setMinutes(new Date().getMinutes() + 240 + 30*i);
+        data.setMinutes(new Date().getMinutes() + 180 + 30*i);
 
         if(data.getMinutes() < 10) min = "0" + data.getMinutes();
         else min = data.getMinutes();

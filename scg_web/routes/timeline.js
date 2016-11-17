@@ -11,7 +11,36 @@ var moment = require('moment');
 var async = require('async');
 
 // List
-router.get('/list/?*', function(req, res) {
+router.get('/list/:id', function(req, res) {
+    models.Post.findAll({
+        order : 'id DESC',
+        where : {
+            userId : req.params.id
+        }
+    }).then(function(timelineSvArr) {
+        var timelineCliArr = [];
+        timelineSvArr.forEach(function(timelineSv) {
+            var timelineCli = {
+                id: timelineSv.id,
+                userId: timelineSv.userId,
+                toTime: moment(timelineSv.toTime).format("hh:mm"),
+                mode: timelineSv.mode,
+                device: timelineSv.device,
+                updatedAt : moment(timelineSv.updatedAt).format("YYYY-MM-DD"),
+                createdAt : timelineSv.createdAt
+            };
+            if(timelineCli.mode == 1)   timelineCli.mode = "Meat & Fish";
+            else timelineCli.mode = "Cheese & Vegetables";
+            timelineCliArr.push(timelineCli);
+        });
+
+        res.contentType('application/json');
+        res.send(timelineCliArr);
+    });
+});
+
+// List
+router.get('/list2/?*', function(req, res) {
     models.Post.findAll({
         order : 'id DESC'
     }).then(function(timelineSvArr) {

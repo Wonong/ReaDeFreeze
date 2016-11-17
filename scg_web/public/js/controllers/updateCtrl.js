@@ -4,20 +4,16 @@
 
 app.controller('updateCtrl',['$scope', '$http' ,'$routeParams', '$rootScope', '$location', function($scope, $http, $routeParams, $rootScope, $location) {
     $scope.submit = function(){
-        $http.post('/updateInfo/',{
-            user : 'test123',
-            device : "Android123",
-            mode : $scope.mode,
-            toTime : $scope.toTime
-        });
-        $location.path("/#/");
-    }
-
-    $scope.sessionCheck = function(){
         $http.get('/users/getSession').then(function(data) {
             $scope.session = data.data;
-        });
-        if($scope.session) $location.path("/#/timeline");
-    }
 
+            $http.post('/updateInfo/',{
+                userId : $scope.session.userId,
+                device : "Android",
+                mode : $scope.mode,
+                toTime : $scope.toTime
+            });
+            $location.path("/#timeline");
+        });
+    }
 }]);

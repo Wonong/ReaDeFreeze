@@ -44,7 +44,6 @@ router.post('/login', function(req, res, next) {
     }
   }).then(function(user) {
     if (user !== null) {
-        console.log(user.dataValues);
       req.session.user = user.dataValues; // 세션 추가 등록
       req.session.user.time = new Date();
       req.session.user.ip = req.connection.remoteAddress;
@@ -69,7 +68,9 @@ router.get('/logout', function(req, res, next) {
 });
 
 router.get('/getSession', function(req, res, next) {
-  res.send(req.session.user);
+    console.log("getSession");
+    console.log(req.session);
+    res.send(req.session.user);
 });
 
 // Create
