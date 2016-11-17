@@ -1,0 +1,363 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'sha256', '--save' ]
+2 info using npm@1.4.9
+3 info using node@v0.10.28
+4 verbose readDependencies using package.json deps
+5 verbose cache add [ 'sha256', null ]
+6 verbose cache add name=undefined spec="sha256" args=["sha256",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: 'sha256',
+7 verbose parsed url   path: 'sha256',
+7 verbose parsed url   href: 'sha256' }
+8 silly lockFile b310da45-sha256 sha256
+9 verbose lock sha256 /Users/WonyeongChoi/.npm/b310da45-sha256.lock
+10 silly lockFile b310da45-sha256 sha256
+11 silly lockFile b310da45-sha256 sha256
+12 verbose addNamed [ 'sha256', '' ]
+13 verbose addNamed [ null, '*' ]
+14 silly lockFile 70508759-sha256 sha256@
+15 verbose lock sha256@ /Users/WonyeongChoi/.npm/70508759-sha256.lock
+16 silly addNameRange { name: 'sha256', range: '*', hasData: false }
+17 verbose url raw sha256
+18 verbose url resolving [ 'https://registry.npmjs.org/', './sha256' ]
+19 verbose url resolved https://registry.npmjs.org/sha256
+20 info trying registry request attempt 1 at 01:45:29
+21 verbose etag W/"581ff7d0-177b"
+22 http GET https://registry.npmjs.org/sha256
+23 http 304 https://registry.npmjs.org/sha256
+24 silly registry.get cb [ 304,
+24 silly registry.get   { date: 'Thu, 17 Nov 2016 16:45:30 GMT',
+24 silly registry.get     via: '1.1 varnish',
+24 silly registry.get     'cache-control': 'max-age=300',
+24 silly registry.get     etag: 'W/"581ff7d0-177b"',
+24 silly registry.get     age: '0',
+24 silly registry.get     connection: 'keep-alive',
+24 silly registry.get     'x-served-by': 'cache-hkg6822-HKG',
+24 silly registry.get     'x-cache': 'MISS',
+24 silly registry.get     'x-cache-hits': '0',
+24 silly registry.get     'x-timer': 'S1479401130.292355,VS0,VE179',
+24 silly registry.get     vary: 'Accept-Encoding' } ]
+25 verbose etag sha256 from cache
+26 silly addNameRange number 2 { name: 'sha256', range: '*', hasData: true }
+27 silly addNameRange versions [ 'sha256', [ '0.1.0', '0.1.1', '0.2.0' ] ]
+28 verbose addNamed [ 'sha256', '0.2.0' ]
+29 verbose addNamed [ '0.2.0', '0.2.0' ]
+30 silly lockFile 5fff0143-sha256-0-2-0 sha256@0.2.0
+31 verbose lock sha256@0.2.0 /Users/WonyeongChoi/.npm/5fff0143-sha256-0-2-0.lock
+32 silly lockFile 5fff0143-sha256-0-2-0 sha256@0.2.0
+33 silly lockFile 5fff0143-sha256-0-2-0 sha256@0.2.0
+34 silly lockFile 70508759-sha256 sha256@
+35 silly lockFile 70508759-sha256 sha256@
+36 silly resolved [ { name: 'sha256',
+36 silly resolved     version: '0.2.0',
+36 silly resolved     description: 'Compute SHA256 of bytes or strings.',
+36 silly resolved     keywords: [ 'string', 'strings', 'sha256', 'bytes', 'cryptography' ],
+36 silly resolved     devDependencies: { mocha: '1.*', terst: '0.0.1' },
+36 silly resolved     repository: { url: 'https://github.com/cryptocoinjs/sha256', type: 'git' },
+36 silly resolved     main: './lib/nodecrypto.js',
+36 silly resolved     browser: './lib/sha256.js',
+36 silly resolved     dependencies: { 'convert-hex': '~0.1.0', 'convert-string': '~0.1.0' },
+36 silly resolved     scripts: { test: 'mocha' },
+36 silly resolved     readme: '# sha256\n\nJavaScript component to compute the SHA256 of strings or bytes.\n\n## DEPRECATION NOTICE\n\nThis library is deprecated. If you think it\'s important to maintain this library, please submit an issue and the case will be consider or the repo / ownership will be transferred to you. Viable alternatives:\n\n1. Use Browserify\n2. https://www.npmjs.com/package/sha.js (used by Browserify)\n3. https://github.com/indutny/hash.js\n\n\n## Install\n\n### Node.js/Browserify\n\n    npm install --save sha256\n\nNote: when Node.js is detected, the Node [`Crypto`](http://nodejs.org/api/crypto.html) component is used instead of re-implementing the SHA256 hash logic.\n\n\n\n## Usage\n\nThere are two methods, one for computing the hash of the input, and one for double-hashing it:\n\n```js\nsha256(\'hello\');   // "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"\nsha256.x2(\'hello\'); // "d7914fe546b684688bb95f4f888a92dfc680603a75f23eb823658031fff766d9"\n```\n\nInput is either an array of bytes or a string. **String are always interpreted as binary data**; if you have a hex-encoded string of data to parse, first convert it to a binary string or array of bytes.\n\nOutput by default is a hexadecimal-encoded string. Other options are an array of bytes, or a binary-encoded string:\n\n```js\nsha256(\'hello\');   // "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824" <= Hex-encoded; default\nsha256(\'hello\', { asBytes: true }); // [44,242,77,186,95,176,163,14,38,232,59,42,197,185,226,158,27,22,30,92,31,167,66,94,115,4,51,98,147,139,152,36] <= Array of bytes\nsha256(\'hello\', { asString: true }); // ",òMº_°£&è;*Å¹â\\§B^s3b$" <= Binary-encoded string\n```\n\n## Test\n\nUnit tests are written in [Mocha](http://visionmedia.github.io/mocha/). To run the test suite, checkout the git repository, and from within the base folder run:\n\n```sh\n$ npm install --dev\n$ npm test\n```\n\n# Credits\n\nMost of the code from CryptoJS https://code.google.com/p/crypto-js/\n\n# License\n\n(MIT License)\n\nCopyright 2013, JP Richardson  <jprichardson@gmail.com>',
+36 silly resolved     readmeFilename: 'README.md',
+36 silly resolved     bugs: { url: 'https://github.com/cryptocoinjs/sha256/issues' },
+36 silly resolved     homepage: 'https://github.com/cryptocoinjs/sha256',
+36 silly resolved     _id: 'sha256@0.2.0',
+36 silly resolved     _shasum: '73a0b418daab7035bff86e8491e363412fc2ab05',
+36 silly resolved     _from: 'sha256@',
+36 silly resolved     _resolved: 'https://registry.npmjs.org/sha256/-/sha256-0.2.0.tgz' } ]
+37 info install sha256@0.2.0 into /Users/WonyeongChoi/Documents/Workspaces/web_workspace/samsung_hackathon/scg_web
+38 info installOne sha256@0.2.0
+39 info /Users/WonyeongChoi/Documents/Workspaces/web_workspace/samsung_hackathon/scg_web/node_modules/sha256 unbuild
+40 info preuninstall sha256@0.2.0
+41 info uninstall sha256@0.2.0
+42 verbose true,/Users/WonyeongChoi/Documents/Workspaces/web_workspace/samsung_hackathon/scg_web/node_modules,/Users/WonyeongChoi/Documents/Workspaces/web_workspace/samsung_hackathon/scg_web/node_modules unbuild sha256@0.2.0
+43 info postuninstall sha256@0.2.0
+44 verbose tar unpack /Users/WonyeongChoi/.npm/sha256/0.2.0/package.tgz
+45 silly lockFile c3822bea-thon-scg-web-node-modules-sha256 tar:///Users/WonyeongChoi/Documents/Workspaces/web_workspace/samsung_hackathon/scg_web/node_modules/sha256
+46 verbose lock tar:///Users/WonyeongChoi/Documents/Workspaces/web_workspace/samsung_hackathon/scg_web/node_modules/sha256 /Users/WonyeongChoi/.npm/c3822bea-thon-scg-web-node-modules-sha256.lock
+47 silly lockFile cd29e628-hoi-npm-sha256-0-2-0-package-tgz tar:///Users/WonyeongChoi/.npm/sha256/0.2.0/package.tgz
+48 verbose lock tar:///Users/WonyeongChoi/.npm/sha256/0.2.0/package.tgz /Users/WonyeongChoi/.npm/cd29e628-hoi-npm-sha256-0-2-0-package-tgz.lock
+49 silly gunzTarPerm modes [ '755', '644' ]
+50 silly gunzTarPerm extractEntry package.json
+51 silly gunzTarPerm extractEntry .npmignore
+52 silly gunzTarPerm extractEntry README.md
+53 silly gunzTarPerm extractEntry CHANGELOG.md
+54 silly gunzTarPerm extractEntry lib/nodecrypto.js
+55 silly gunzTarPerm extractEntry lib/sha256.js
+56 silly lockFile c3822bea-thon-scg-web-node-modules-sha256 tar:///Users/WonyeongChoi/Documents/Workspaces/web_workspace/samsung_hackathon/scg_web/node_modules/sha256
+57 silly lockFile c3822bea-thon-scg-web-node-modules-sha256 tar:///Users/WonyeongChoi/Documents/Workspaces/web_workspace/samsung_hackathon/scg_web/node_modules/sha256
+58 silly lockFile cd29e628-hoi-npm-sha256-0-2-0-package-tgz tar:///Users/WonyeongChoi/.npm/sha256/0.2.0/package.tgz
+59 silly lockFile cd29e628-hoi-npm-sha256-0-2-0-package-tgz tar:///Users/WonyeongChoi/.npm/sha256/0.2.0/package.tgz
+60 info preinstall sha256@0.2.0
+61 verbose readDependencies using package.json deps
+62 verbose readDependencies using package.json deps
+63 verbose cache add [ 'convert-hex@~0.1.0', null ]
+64 verbose cache add name=undefined spec="convert-hex@~0.1.0" args=["convert-hex@~0.1.0",null]
+65 verbose parsed url { protocol: null,
+65 verbose parsed url   slashes: null,
+65 verbose parsed url   auth: null,
+65 verbose parsed url   host: null,
+65 verbose parsed url   port: null,
+65 verbose parsed url   hostname: null,
+65 verbose parsed url   hash: null,
+65 verbose parsed url   search: null,
+65 verbose parsed url   query: null,
+65 verbose parsed url   pathname: 'convert-hex@~0.1.0',
+65 verbose parsed url   path: 'convert-hex@~0.1.0',
+65 verbose parsed url   href: 'convert-hex@~0.1.0' }
+66 verbose cache add name="convert-hex" spec="~0.1.0" args=["convert-hex","~0.1.0"]
+67 verbose parsed url { protocol: null,
+67 verbose parsed url   slashes: null,
+67 verbose parsed url   auth: null,
+67 verbose parsed url   host: null,
+67 verbose parsed url   port: null,
+67 verbose parsed url   hostname: null,
+67 verbose parsed url   hash: null,
+67 verbose parsed url   search: null,
+67 verbose parsed url   query: null,
+67 verbose parsed url   pathname: '~0.1.0',
+67 verbose parsed url   path: '~0.1.0',
+67 verbose parsed url   href: '~0.1.0' }
+68 verbose addNamed [ 'convert-hex', '~0.1.0' ]
+69 verbose addNamed [ null, '>=0.1.0-0 <0.2.0-0' ]
+70 silly lockFile 04977b8a-convert-hex-0-1-0 convert-hex@~0.1.0
+71 verbose lock convert-hex@~0.1.0 /Users/WonyeongChoi/.npm/04977b8a-convert-hex-0-1-0.lock
+72 verbose cache add [ 'convert-string@~0.1.0', null ]
+73 verbose cache add name=undefined spec="convert-string@~0.1.0" args=["convert-string@~0.1.0",null]
+74 verbose parsed url { protocol: null,
+74 verbose parsed url   slashes: null,
+74 verbose parsed url   auth: null,
+74 verbose parsed url   host: null,
+74 verbose parsed url   port: null,
+74 verbose parsed url   hostname: null,
+74 verbose parsed url   hash: null,
+74 verbose parsed url   search: null,
+74 verbose parsed url   query: null,
+74 verbose parsed url   pathname: 'convert-string@~0.1.0',
+74 verbose parsed url   path: 'convert-string@~0.1.0',
+74 verbose parsed url   href: 'convert-string@~0.1.0' }
+75 verbose cache add name="convert-string" spec="~0.1.0" args=["convert-string","~0.1.0"]
+76 verbose parsed url { protocol: null,
+76 verbose parsed url   slashes: null,
+76 verbose parsed url   auth: null,
+76 verbose parsed url   host: null,
+76 verbose parsed url   port: null,
+76 verbose parsed url   hostname: null,
+76 verbose parsed url   hash: null,
+76 verbose parsed url   search: null,
+76 verbose parsed url   query: null,
+76 verbose parsed url   pathname: '~0.1.0',
+76 verbose parsed url   path: '~0.1.0',
+76 verbose parsed url   href: '~0.1.0' }
+77 verbose addNamed [ 'convert-string', '~0.1.0' ]
+78 verbose addNamed [ null, '>=0.1.0-0 <0.2.0-0' ]
+79 silly lockFile a4269cf8-convert-string-0-1-0 convert-string@~0.1.0
+80 verbose lock convert-string@~0.1.0 /Users/WonyeongChoi/.npm/a4269cf8-convert-string-0-1-0.lock
+81 silly addNameRange { name: 'convert-hex',
+81 silly addNameRange   range: '>=0.1.0-0 <0.2.0-0',
+81 silly addNameRange   hasData: false }
+82 silly addNameRange { name: 'convert-string',
+82 silly addNameRange   range: '>=0.1.0-0 <0.2.0-0',
+82 silly addNameRange   hasData: false }
+83 verbose url raw convert-hex
+84 verbose url resolving [ 'https://registry.npmjs.org/', './convert-hex' ]
+85 verbose url resolved https://registry.npmjs.org/convert-hex
+86 info trying registry request attempt 1 at 01:45:30
+87 verbose etag W/"580aa4cb-a4a"
+88 http GET https://registry.npmjs.org/convert-hex
+89 verbose url raw convert-string
+90 verbose url resolving [ 'https://registry.npmjs.org/', './convert-string' ]
+91 verbose url resolved https://registry.npmjs.org/convert-string
+92 info trying registry request attempt 1 at 01:45:30
+93 verbose etag W/"54c2c3c9-a71"
+94 http GET https://registry.npmjs.org/convert-string
+95 http 304 https://registry.npmjs.org/convert-string
+96 silly registry.get cb [ 304,
+96 silly registry.get   { date: 'Thu, 17 Nov 2016 16:45:30 GMT',
+96 silly registry.get     via: '1.1 varnish',
+96 silly registry.get     'cache-control': 'max-age=300',
+96 silly registry.get     etag: 'W/"54c2c3c9-a71"',
+96 silly registry.get     age: '0',
+96 silly registry.get     connection: 'keep-alive',
+96 silly registry.get     'x-served-by': 'cache-hkg6822-HKG',
+96 silly registry.get     'x-cache': 'MISS',
+96 silly registry.get     'x-cache-hits': '0',
+96 silly registry.get     'x-timer': 'S1479401130.941696,VS0,VE185',
+96 silly registry.get     vary: 'Accept-Encoding' } ]
+97 verbose etag convert-string from cache
+98 http 304 https://registry.npmjs.org/convert-hex
+99 silly registry.get cb [ 304,
+99 silly registry.get   { date: 'Thu, 17 Nov 2016 16:45:30 GMT',
+99 silly registry.get     via: '1.1 varnish',
+99 silly registry.get     'cache-control': 'max-age=300',
+99 silly registry.get     etag: 'W/"580aa4cb-a4a"',
+99 silly registry.get     age: '0',
+99 silly registry.get     connection: 'keep-alive',
+99 silly registry.get     'x-served-by': 'cache-hkg6825-HKG',
+99 silly registry.get     'x-cache': 'MISS',
+99 silly registry.get     'x-cache-hits': '0',
+99 silly registry.get     'x-timer': 'S1479401130.971199,VS0,VE161',
+99 silly registry.get     vary: 'Accept-Encoding' } ]
+100 verbose etag convert-hex from cache
+101 silly addNameRange number 2 { name: 'convert-string',
+101 silly addNameRange   range: '>=0.1.0-0 <0.2.0-0',
+101 silly addNameRange   hasData: true }
+102 silly addNameRange versions [ 'convert-string', [ '0.1.0' ] ]
+103 verbose addNamed [ 'convert-string', '0.1.0' ]
+104 verbose addNamed [ '0.1.0', '0.1.0' ]
+105 silly lockFile 2659a095-convert-string-0-1-0 convert-string@0.1.0
+106 verbose lock convert-string@0.1.0 /Users/WonyeongChoi/.npm/2659a095-convert-string-0-1-0.lock
+107 silly addNameRange number 2 { name: 'convert-hex',
+107 silly addNameRange   range: '>=0.1.0-0 <0.2.0-0',
+107 silly addNameRange   hasData: true }
+108 silly addNameRange versions [ 'convert-hex', [ '0.1.0' ] ]
+109 verbose addNamed [ 'convert-hex', '0.1.0' ]
+110 verbose addNamed [ '0.1.0', '0.1.0' ]
+111 silly lockFile 34d60953-convert-hex-0-1-0 convert-hex@0.1.0
+112 verbose lock convert-hex@0.1.0 /Users/WonyeongChoi/.npm/34d60953-convert-hex-0-1-0.lock
+113 silly lockFile 34d60953-convert-hex-0-1-0 convert-hex@0.1.0
+114 silly lockFile 34d60953-convert-hex-0-1-0 convert-hex@0.1.0
+115 silly lockFile 04977b8a-convert-hex-0-1-0 convert-hex@~0.1.0
+116 silly lockFile 04977b8a-convert-hex-0-1-0 convert-hex@~0.1.0
+117 silly lockFile 2659a095-convert-string-0-1-0 convert-string@0.1.0
+118 silly lockFile 2659a095-convert-string-0-1-0 convert-string@0.1.0
+119 silly lockFile a4269cf8-convert-string-0-1-0 convert-string@~0.1.0
+120 silly lockFile a4269cf8-convert-string-0-1-0 convert-string@~0.1.0
+121 silly resolved [ { name: 'convert-hex',
+121 silly resolved     version: '0.1.0',
+121 silly resolved     description: 'Convert to/from hex string and array of bytes',
+121 silly resolved     keywords: [ 'string', 'strings', 'convert', 'hex', 'bytes' ],
+121 silly resolved     devDependencies: { chai: '~1.8.1', mocha: '1.*' },
+121 silly resolved     repository:
+121 silly resolved      { url: 'https://github.com/cryptocoinjs/convert-hex',
+121 silly resolved        type: 'git' },
+121 silly resolved     main: 'convert-hex.js',
+121 silly resolved     readme: 'convert-hex\n===========\n\nJavaScript component to convert to/from hex strings and byte arrays.\n\nAMD/CommonJS compatible.\n\n\nInstall\n-------\n\n### Node.js/Browserify\n\n    npm install --save cryptocoin-convert-hex\n\n\n### Component\n\n    component install cryptocoin/convert-hex\n\n\n### Bower\n\n    bower install cryptocoin/convert-hex\n\n\n### Script\n\n```html\n<script src="/path/to/convert-hex.js"></script>\n```\n\n\nUsage\n-----\n\n(if using script, the global is `convertHex`)\n\n### bytesToHex(bytes)\n\n```js\nvar convertHex = require(\'convert-hex\')\n\nvar bytes = [0x34, 0x55, 0x1, 0xDF]\nconsole.log(convertHex.bytesToHex(bytes)) //"345501df"\n```\n\n\n### hexToBytes(hexStr)\n\n```js\nvar hex = "34550122DF" //"0x" prefix is optional\nconsole.dir(conv.hexToBytes(hex).join(\',\')) //\'[52,85,1,34,223]\'\n```\n\nCredits\n-------\n\nLoosely inspired by code from here: https://github.com/vbuterin/bitcoinjs-lib & CryptoJS\n\n\nLicense\n-------\n\n(MIT License)\n\nCopyright 2013, JP Richardson  <jprichardson@gmail.com>',
+121 silly resolved     readmeFilename: 'README.md',
+121 silly resolved     bugs: { url: 'https://github.com/cryptocoinjs/convert-hex/issues' },
+121 silly resolved     homepage: 'https://github.com/cryptocoinjs/convert-hex',
+121 silly resolved     _id: 'convert-hex@0.1.0',
+121 silly resolved     _shasum: '08c04568922c27776b8a2e81a95d393362ea0b65',
+121 silly resolved     _from: 'convert-hex@~0.1.0',
+121 silly resolved     _resolved: 'https://registry.npmjs.org/convert-hex/-/convert-hex-0.1.0.tgz' },
+121 silly resolved   { name: 'convert-string',
+121 silly resolved     version: '0.1.0',
+121 silly resolved     description: 'Convert to/from strings and array of bytes',
+121 silly resolved     keywords: [ 'string', 'strings', 'convert', 'hex', 'bytes' ],
+121 silly resolved     devDependencies: { chai: '~1.8.1', mocha: '1.*', terst: '0.0.1' },
+121 silly resolved     repository:
+121 silly resolved      { url: 'https://github.com/cryptocoinjs/convert-string',
+121 silly resolved        type: 'git' },
+121 silly resolved     main: 'convert-string.js',
+121 silly resolved     readme: 'convert-string\n==============\n\nJavaScript component to convert to/from strings and byte arrays.\n\nAMD/CommonJS compatible.\n\n\nInstall\n-------\n\n### Node.js/Browserify\n\n    npm install --save convert-string\n\n\n### Component\n\n    component install cryptocoin/convert-string\n\n\n### Bower\n\n    bower install convert-string\n\n\n### Script\n\n```html\n<script src="/path/to/convert-string.js"></script>\n```\n\n\nUsage\n-----\n\n### stringToBytes(str)\n\n### bytesToString(bytes)\n\n### UTF8.stringToBytes(str)\n\n### UTF8.bytesToString(bytes)\n\n\nCredits\n-------\n\nLoosely inspired by code from here: https://github.com/vbuterin/bitcoinjs-lib & CryptoJS\n\n\nReferences on JavaScript UTF-8 forced encoding\n----------------------------------------------\n\n(these sources are also included as PDFs in the repo in case the links go dead)\n\n- http://ecmanaut.blogspot.com/2006/07/encoding-decoding-utf8-in-javascript.html\n- http://hossa.in/2012/07/20/utf-8-in-javascript.html\n\n\n\nLicense\n-------\n\n(MIT License)\n\nCopyright 2013, JP Richardson  <jprichardson@gmail.com>',
+121 silly resolved     readmeFilename: 'README.md',
+121 silly resolved     bugs: { url: 'https://github.com/cryptocoinjs/convert-string/issues' },
+121 silly resolved     homepage: 'https://github.com/cryptocoinjs/convert-string',
+121 silly resolved     _id: 'convert-string@0.1.0',
+121 silly resolved     _shasum: '79ce41a9bb0d03bcf72cdc6a8f3c56fbbc64410a',
+121 silly resolved     _from: 'convert-string@~0.1.0',
+121 silly resolved     _resolved: 'https://registry.npmjs.org/convert-string/-/convert-string-0.1.0.tgz' } ]
+122 info install convert-hex@0.1.0 into /Users/WonyeongChoi/Documents/Workspaces/web_workspace/samsung_hackathon/scg_web/node_modules/sha256
+123 info install convert-string@0.1.0 into /Users/WonyeongChoi/Documents/Workspaces/web_workspace/samsung_hackathon/scg_web/node_modules/sha256
+124 info installOne convert-hex@0.1.0
+125 info installOne convert-string@0.1.0
+126 info /Users/WonyeongChoi/Documents/Workspaces/web_workspace/samsung_hackathon/scg_web/node_modules/sha256/node_modules/convert-hex unbuild
+127 info /Users/WonyeongChoi/Documents/Workspaces/web_workspace/samsung_hackathon/scg_web/node_modules/sha256/node_modules/convert-string unbuild
+128 verbose tar unpack /Users/WonyeongChoi/.npm/convert-hex/0.1.0/package.tgz
+129 silly lockFile d12e47c5--sha256-node-modules-convert-hex tar:///Users/WonyeongChoi/Documents/Workspaces/web_workspace/samsung_hackathon/scg_web/node_modules/sha256/node_modules/convert-hex
+130 verbose lock tar:///Users/WonyeongChoi/Documents/Workspaces/web_workspace/samsung_hackathon/scg_web/node_modules/sha256/node_modules/convert-hex /Users/WonyeongChoi/.npm/d12e47c5--sha256-node-modules-convert-hex.lock
+131 silly lockFile 5679fea4-pm-convert-hex-0-1-0-package-tgz tar:///Users/WonyeongChoi/.npm/convert-hex/0.1.0/package.tgz
+132 verbose lock tar:///Users/WonyeongChoi/.npm/convert-hex/0.1.0/package.tgz /Users/WonyeongChoi/.npm/5679fea4-pm-convert-hex-0-1-0-package-tgz.lock
+133 verbose tar unpack /Users/WonyeongChoi/.npm/convert-string/0.1.0/package.tgz
+134 silly lockFile 546a24c9-a256-node-modules-convert-string tar:///Users/WonyeongChoi/Documents/Workspaces/web_workspace/samsung_hackathon/scg_web/node_modules/sha256/node_modules/convert-string
+135 verbose lock tar:///Users/WonyeongChoi/Documents/Workspaces/web_workspace/samsung_hackathon/scg_web/node_modules/sha256/node_modules/convert-string /Users/WonyeongChoi/.npm/546a24c9-a256-node-modules-convert-string.lock
+136 silly lockFile 11ce26bd-convert-string-0-1-0-package-tgz tar:///Users/WonyeongChoi/.npm/convert-string/0.1.0/package.tgz
+137 verbose lock tar:///Users/WonyeongChoi/.npm/convert-string/0.1.0/package.tgz /Users/WonyeongChoi/.npm/11ce26bd-convert-string-0-1-0-package-tgz.lock
+138 silly gunzTarPerm modes [ '755', '644' ]
+139 silly gunzTarPerm modes [ '755', '644' ]
+140 silly gunzTarPerm extractEntry package.json
+141 silly gunzTarPerm extractEntry package.json
+142 silly gunzTarPerm extractEntry .npmignore
+143 silly gunzTarPerm extractEntry README.md
+144 silly gunzTarPerm extractEntry .npmignore
+145 silly gunzTarPerm extractEntry README.md
+146 silly gunzTarPerm extractEntry convert-hex.js
+147 silly gunzTarPerm extractEntry CHANGELOG.md
+148 silly gunzTarPerm extractEntry convert-string.js
+149 silly gunzTarPerm extractEntry CHANGELOG.md
+150 silly gunzTarPerm extractEntry bower.json
+151 silly gunzTarPerm extractEntry component.json
+152 silly gunzTarPerm extractEntry bower.json
+153 silly gunzTarPerm extractEntry component.json
+154 silly lockFile 546a24c9-a256-node-modules-convert-string tar:///Users/WonyeongChoi/Documents/Workspaces/web_workspace/samsung_hackathon/scg_web/node_modules/sha256/node_modules/convert-string
+155 silly lockFile 546a24c9-a256-node-modules-convert-string tar:///Users/WonyeongChoi/Documents/Workspaces/web_workspace/samsung_hackathon/scg_web/node_modules/sha256/node_modules/convert-string
+156 silly lockFile d12e47c5--sha256-node-modules-convert-hex tar:///Users/WonyeongChoi/Documents/Workspaces/web_workspace/samsung_hackathon/scg_web/node_modules/sha256/node_modules/convert-hex
+157 silly lockFile d12e47c5--sha256-node-modules-convert-hex tar:///Users/WonyeongChoi/Documents/Workspaces/web_workspace/samsung_hackathon/scg_web/node_modules/sha256/node_modules/convert-hex
+158 silly lockFile 11ce26bd-convert-string-0-1-0-package-tgz tar:///Users/WonyeongChoi/.npm/convert-string/0.1.0/package.tgz
+159 silly lockFile 11ce26bd-convert-string-0-1-0-package-tgz tar:///Users/WonyeongChoi/.npm/convert-string/0.1.0/package.tgz
+160 silly lockFile 5679fea4-pm-convert-hex-0-1-0-package-tgz tar:///Users/WonyeongChoi/.npm/convert-hex/0.1.0/package.tgz
+161 silly lockFile 5679fea4-pm-convert-hex-0-1-0-package-tgz tar:///Users/WonyeongChoi/.npm/convert-hex/0.1.0/package.tgz
+162 info preinstall convert-hex@0.1.0
+163 info preinstall convert-string@0.1.0
+164 verbose readDependencies using package.json deps
+165 verbose readDependencies using package.json deps
+166 verbose readDependencies using package.json deps
+167 silly resolved []
+168 verbose about to build /Users/WonyeongChoi/Documents/Workspaces/web_workspace/samsung_hackathon/scg_web/node_modules/sha256/node_modules/convert-hex
+169 info build /Users/WonyeongChoi/Documents/Workspaces/web_workspace/samsung_hackathon/scg_web/node_modules/sha256/node_modules/convert-hex
+170 verbose linkStuff [ false,
+170 verbose linkStuff   false,
+170 verbose linkStuff   false,
+170 verbose linkStuff   '/Users/WonyeongChoi/Documents/Workspaces/web_workspace/samsung_hackathon/scg_web/node_modules/sha256/node_modules' ]
+171 info linkStuff convert-hex@0.1.0
+172 verbose linkBins convert-hex@0.1.0
+173 verbose linkMans convert-hex@0.1.0
+174 verbose rebuildBundles convert-hex@0.1.0
+175 verbose readDependencies using package.json deps
+176 silly resolved []
+177 verbose about to build /Users/WonyeongChoi/Documents/Workspaces/web_workspace/samsung_hackathon/scg_web/node_modules/sha256/node_modules/convert-string
+178 info build /Users/WonyeongChoi/Documents/Workspaces/web_workspace/samsung_hackathon/scg_web/node_modules/sha256/node_modules/convert-string
+179 verbose linkStuff [ false,
+179 verbose linkStuff   false,
+179 verbose linkStuff   false,
+179 verbose linkStuff   '/Users/WonyeongChoi/Documents/Workspaces/web_workspace/samsung_hackathon/scg_web/node_modules/sha256/node_modules' ]
+180 info linkStuff convert-string@0.1.0
+181 verbose linkBins convert-string@0.1.0
+182 verbose linkMans convert-string@0.1.0
+183 verbose rebuildBundles convert-string@0.1.0
+184 info install convert-hex@0.1.0
+185 info install convert-string@0.1.0
+186 info postinstall convert-hex@0.1.0
+187 info postinstall convert-string@0.1.0
+188 verbose about to build /Users/WonyeongChoi/Documents/Workspaces/web_workspace/samsung_hackathon/scg_web/node_modules/sha256
+189 info build /Users/WonyeongChoi/Documents/Workspaces/web_workspace/samsung_hackathon/scg_web/node_modules/sha256
+190 verbose linkStuff [ false,
+190 verbose linkStuff   false,
+190 verbose linkStuff   false,
+190 verbose linkStuff   '/Users/WonyeongChoi/Documents/Workspaces/web_workspace/samsung_hackathon/scg_web/node_modules' ]
+191 info linkStuff sha256@0.2.0
+192 verbose linkBins sha256@0.2.0
+193 verbose linkMans sha256@0.2.0
+194 verbose rebuildBundles sha256@0.2.0
+195 verbose rebuildBundles [ 'convert-hex', 'convert-string' ]
+196 info install sha256@0.2.0
+197 info postinstall sha256@0.2.0
+198 error peerinvalid The package grunt does not satisfy its siblings' peerDependencies requirements!
+198 error peerinvalid Peer grunt-develop@0.4.0 wants grunt@>=0.4.1
+198 error peerinvalid Peer grunt-contrib-watch@0.6.1 wants grunt@~0.4.0
+199 error System Darwin 15.6.0
+200 error command "node" "/usr/local/bin/npm" "install" "sha256" "--save"
+201 error cwd /Users/WonyeongChoi/Documents/Workspaces/web_workspace/samsung_hackathon/scg_web
+202 error node -v v0.10.28
+203 error npm -v 1.4.9
+204 error code EPEERINVALID
+205 verbose exit [ 1, true ]

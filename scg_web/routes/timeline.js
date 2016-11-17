@@ -40,13 +40,13 @@ router.get('/list/?*', function(req, res) {
 router.get('/time_list/?*', function(req, res){
     userId = models.User.findOne({
         where : {
-            tizenId : req.body.tizenId
+            tizenId : req.query.tizenId
         }
     });
     models.Post.findAll({
         order : "id DESC",
         where : {
-            updatedAt : {$gt : req.body.updatedAt}
+            updatedAt : {$gt : req.query.updatedAt}
         }
     }).then(function(timelineArr){
         console.log("timelineArr");
