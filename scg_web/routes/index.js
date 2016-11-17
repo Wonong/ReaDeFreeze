@@ -18,7 +18,9 @@ router.get('/link/:userId', function(req, res){
     models.User.findOne(
         { where : {userId : req.params.userId}}
     ).then(function(data){
-        res.send(data);
+        console.log("datadata");
+        console.log(data.dataValues);
+        res.send(data.dataValues);
     })
 })
 
