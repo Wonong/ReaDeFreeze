@@ -13,5 +13,5 @@ router.post('/updateInfo', function (req, res, next) {
     models.Post.create(req.body).then(function(Post){});
 })
 
-
+3
 module.exports = router;

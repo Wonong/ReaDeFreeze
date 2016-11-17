@@ -1,9 +1,14 @@
 
-app.controller('loginCtrl', ['$scope', '$http', function($scope, $http) {
+app.controller('loginCtrl', ['$scope', '$http', '$window', '$location', function($scope, $http, $window, $location) {
     $scope.sessionCheck = function(){
         $http.get('/users/getSession').then(function(data) {
+            console.log("get session");
             $scope.session = data.data;
         });
+        if($scope.session) {
+            console.log("session exist");
+            $window.location.href= "/#/timeline";
+        }
     }
 
     $scope.insert = function(){
@@ -31,6 +36,7 @@ app.controller('loginCtrl', ['$scope', '$http', function($scope, $http) {
             if(data) {
                 alert("Login Success!!");
                 $scope.session = data;
+                $window.location.href = '/#/timeline';
             }
             else
                 alert("Login Failed!!");

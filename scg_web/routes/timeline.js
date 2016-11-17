@@ -49,6 +49,8 @@ router.get('/time_list/?*', function(req, res){
             updatedAt : {$gt : req.body.updatedAt}
         }
     }).then(function(timelineArr){
+        console.log("timelineArr");
+        console.log(timelineArr);
         res.send(timelineArr);
     })
 })

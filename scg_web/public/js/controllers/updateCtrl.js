@@ -12,4 +12,12 @@ app.controller('updateCtrl',['$scope', '$http' ,'$routeParams', '$rootScope', '$
         });
         $location.path("/#/");
     }
+
+    $scope.sessionCheck = function(){
+        $http.get('/users/getSession').then(function(data) {
+            $scope.session = data.data;
+        });
+        if($scope.session) $location.path("/#/timeline");
+    }
+
 }]);

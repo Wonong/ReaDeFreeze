@@ -12,4 +12,12 @@ app.controller('timelineCtrl',['$scope', '$http' ,'$routeParams', '$rootScope', 
             $scope.timelineList = data;
         });
     };
+
+    $scope.sessionCheck = function(){
+        $http.get('/users/getSession').then(function(data) {
+            $scope.session = data.data;
+        });
+        if($scope.session) $location.path("/#/timeline");
+    }
+
 }]);
