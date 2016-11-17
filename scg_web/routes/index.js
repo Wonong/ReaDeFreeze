@@ -16,8 +16,8 @@ router.post('/update/', function (req, res, next) {
 })
 
 router.post('/user_data/', function(req, res, next){
-    console.log(req.query);
-    models.userData.create(req.query).then(function(userData){
+    console.log(req.body);
+    models.userData.create(req.body).then(function(userData){
     });
 });
 module.exports = router;
