@@ -16,10 +16,11 @@ app.controller('updateCtrl',['$scope', '$http' ,'$routeParams', '$rootScope', '$
                         mode : $scope.mode,
                         toTime : $scope.toTime
                     });
+                    $location.path("/#timeline");
                 }else{
                     alert("먼저 냉장고와 연결을 해주세요");
+                    document.getElementsByClassName("pass").html("");
                 }
-                $location.path("/#timeline");
             })
 
         });

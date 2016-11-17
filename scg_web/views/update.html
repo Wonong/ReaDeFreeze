@@ -10,7 +10,7 @@
                             <div class="form-group">
                                 <label>Time Selects</label>
                                 <select id="toTime" ng-model="toTime" name="toTime" class="form-control">
-                                    <option selected="true">PM 06:00</option>
+                                    <option selected="true"></option>
                                     <option></option>
                                     <option></option>
                                     <option></option>
@@ -25,8 +25,11 @@
                             <div class="form-group">
                                 <label>Mode Selects</label>
                                 <select name="mode" ng-model="mode" class="form-control">
-                                    <option value="1">Meat and Fish</option>
-                                    <option value="2">Vegetables</option>
+                                    <option value="1">Frozen</option>
+                                    <option value="2">Soft Freeze(영하 5도)</option>
+                                    <option value="3">Meat & Fish(영하 2도)</option>
+                                    <option value="4">Cheese & Vegetables(영상 2도)</option>
+                                    <option value="5" selected="true">White wine(영상 5도)</option>
                                 </select>
                             </div>
                             <button type="submit" class="btn btn-default">Information Update!</button>

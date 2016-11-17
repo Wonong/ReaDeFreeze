@@ -15,18 +15,23 @@ app.controller('loginCtrl', ['$scope', '$http', '$window', '$location', function
         var data = {};
         console.log($scope);
         data.userId = $scope.userId;
-        data.password = $scope.password;
-        data.tizenId = 'NULL';
-        $http.post('/users',data).success(function(data) {
-            console.log("insert2");
-            if(data.idConflict)
-                alert("아이디가 중복 됩니다.");
-            else {
-                alert("ID: "+ $scope.user+ " PW: "+ $scope.password+" 성공!");
-                $scope.session = data;
-                $window.location.href= "/#/timeline";
-            }
-        });
+        if($scope.password == $scope.password2){
+            data.password = $scope.password;
+            data.tizenId = 'NULL';
+            $http.post('/users',data).success(function(data) {
+                console.log("insert2");
+                if(data.idConflict)
+                    alert("아이디가 중복 됩니다.");
+                else {
+                    alert("ID: "+ $scope.user+ " PW: "+ $scope.password+" 성공!");
+                    $scope.session = data;
+                    $window.location.href= "/#/timeline";
+                }
+            });
+        }else{
+            alert("password를 확인하세요.");
+        }
+
     }
 
     $scope.login = function(){

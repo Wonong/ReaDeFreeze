@@ -65,22 +65,26 @@ router.get('/list2/?*', function(req, res) {
 
 //최근 기록 updated시간이랑 tizenId 보내면 그 시간부터 현재까지에 해당하는 모든 로그 보내기.
 router.get('/time_list/?*', function(req, res){
-    userId = models.User.findOne({
+    if(req.query.tizenId == 'vXKD7YPKcKbZu0gucsiuUrSOjAA=') console.log("good");
+
+    models.User.findOne({
         where : {
             tizenId : req.query.tizenId
         }
+    }).then(function(data){
+        var userId = data.userId;
+
+        models.Post.findAll({
+            order : "id DESC",
+            where : {
+                updatedAt : {$gt : req.query.updatedAt},
+                userId : userId
+            }
+        }).then(function(timelineArr){
+            console.log(timelineArr);
+            res.send(timelineArr);
+        });
     });
-    models.Post.findAll({
-        order : "id DESC",
-        where : {
-            updatedAt : {$gt : req.query.updatedAt},
-            userId : userId.userId
-        }
-    }).then(function(timelineArr){
-        console.log("timelineArr");
-        console.log(timelineArr);
-        res.send(timelineArr);
-    })
 })
 
 //냉장고 설절변경기록 서버에 추기ㅏ
