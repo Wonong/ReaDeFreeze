@@ -24,6 +24,20 @@ function timeChange(date){
     return date;
 }
 
+function timeChange2(date){
+
+    date = new Date(date);
+    if(date.getMinutes() < 10) min = "0" + date.getMinutes();
+    else min = date.getMinutes();
+
+    if(date.getHours() < 10) hour = "0" + date.getHours();
+    else hour = date.getHours();
+
+    date =[date.getFullYear(), date.getMonth()+1, date.getDate()].join('-')+'T'+ [date.getHours(), date.getMinutes(), date.getSeconds()].join(':');
+
+    return date;
+}
+
 // 특정 계정의 로그만을 뽑는다
 router.get('/list/:id', function(req, res) {
     models.Post.findAll({
@@ -79,7 +93,7 @@ router.get('/list2/?*', function(req, res) {
 
 //최근 기록 updated시간이랑 tizenId 보내면 그 시간부터 현재까지에 해당하는 모든 로그 보내기.
 router.get('/time_list/?*', function(req, res){
-    var update = timeChange(req.query.updatedAt);
+    var update = timeChange2(req.query.updatedAt);
     models.User.findOne({
         where : {
             tizenId : req.query.tizenId
