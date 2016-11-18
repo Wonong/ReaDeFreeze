@@ -65,8 +65,6 @@ router.get('/list2/?*', function(req, res) {
 
 //최근 기록 updated시간이랑 tizenId 보내면 그 시간부터 현재까지에 해당하는 모든 로그 보내기.
 router.get('/time_list/?*', function(req, res){
-    if(req.query.tizenId == 'vXKD7YPKcKbZu0gucsiuUrSOjAA=') console.log("good");
-
     models.User.findOne({
         where : {
             tizenId : req.query.tizenId
@@ -91,18 +89,18 @@ router.get('/time_list/?*', function(req, res){
 })
 
 //냉장고 설절변경기록 서버에 추기ㅏ
-router.post('/update/',function(req, res){
-    console.log(req.body.tizenId);
+router.get('/update/?*',function(req, res){
+    console.log(req.query.tizenId);
    models.User.findOne({
        where : {
-           tizenId : req.body.tizenId
+           tizenId : req.query.tizenId
        }
    }).then(function(data){
        console.log(data)
        if(data){
            models.Post.create({
-               mode : req.body.mode,
-               toTime : req.body.toTime,
+               mode : req.query.mode,
+               toTime : req.query.toTime,
                device : 'Refrigerator',
                userId : data.userId
            }).then(function(Post){
@@ -111,7 +109,6 @@ router.post('/update/',function(req, res){
        }else{
            res.send({"message" : "Not connected"})
        }
-
    })
 });
 
