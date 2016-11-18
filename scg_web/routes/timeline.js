@@ -10,6 +10,20 @@ var config = require('../config/config.json')[process.env.NODE_ENV || "developme
 var moment = require('moment');
 var async = require('async');
 
+function timeChange(date){
+
+    date = new Date(date);
+    if(date.getMinutes() < 10) min = "0" + date.getMinutes();
+    else min = date.getMinutes();
+
+    if(date.getHours() < 10) hour = "0" + date.getHours();
+    else hour = date.getHours();
+
+    date =[date.getFullYear(), date.getMonth()+1, date.getDate()].join('-')+' '+ [date.getHours(), date.getMinutes(), date.getSeconds()].join(':');
+
+    return date;
+}
+
 // 특정 계정의 로그만을 뽑는다
 router.get('/list/:id', function(req, res) {
     models.Post.findAll({
@@ -91,16 +105,16 @@ router.get('/time_list/?*', function(req, res){
 //냉장고 설절변경기록 서버에 추기ㅏ
 router.get('/update/?*',function(req, res){
     console.log(req.query.tizenId);
+    console.log(req.query.toTime);
    models.User.findOne({
        where : {
            tizenId : req.query.tizenId
        }
    }).then(function(data){
-       console.log(data)
        if(data){
            models.Post.create({
                mode : req.query.mode,
-               toTime : req.query.toTime,
+               toTime : timeChange(req.query.toTime),
                device : 'Refrigerator',
                userId : data.userId
            }).then(function(Post){
