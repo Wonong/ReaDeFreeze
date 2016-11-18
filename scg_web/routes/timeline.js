@@ -91,7 +91,7 @@ router.get('/time_list/?*', function(req, res){
 })
 
 //냉장고 설절변경기록 서버에 추기ㅏ
-router.post('/update/',function(res, req){
+router.post('/update/',function(req, res){
    models.User.findOne({
        where : {
            tizenId : req.body.tizenId
