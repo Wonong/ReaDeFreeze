@@ -37,18 +37,21 @@ router.get('/list/:id', function(req, res) {
             var timelineCli = {
                 id: timelineSv.id,
                 userId: timelineSv.userId,
-                toTime: moment(timelineSv.toTime).format("hh:mm"),
+                toTime: moment(timelineSv.toTime).format("HH:mm"),
                 mode: timelineSv.mode,
                 device: timelineSv.device,
                 updatedAt : moment(timelineSv.updatedAt).format("YYYY-MM-DD"),
                 createdAt : timelineSv.createdAt
             };
-            if(timelineCli.mode == 1)   timelineCli.mode = "Meat & Fish";
-            else timelineCli.mode = "Cheese & Vegetables";
+            if(timelineCli.mode == 1)   timelineCli.mode = "Frozen";
+            else if(timelineCli.mode == 2)   timelineCli.mode = "Soft Freeze";
+            else if(timelineCli.mode == 3)   timelineCli.mode = "Meat & Fish";
+            else if(timelineCli.mode == 4)   timelineCli.mode = "Cheese & Vegetables";
+            else if(timelineCli.mode == 5)   timelineCli.mode = "White Wine";
             timelineCliArr.push(timelineCli);
         });
 
-        res.contentType('application/json');
+        // res.contentType('application/json');
         res.send(timelineCliArr);
     });
 });

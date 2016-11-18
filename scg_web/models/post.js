@@ -6,7 +6,7 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false,
             comment: "해당 설정을 지정한 user"
         }, toTime: {
-            type: DataTypes.DATEONLY,
+            type: DataTypes.DATE,
             allowNull: false,
             comment: "언제까지 설정 완료"
         }, mode: {
