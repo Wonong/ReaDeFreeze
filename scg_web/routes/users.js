@@ -30,7 +30,7 @@ router.post('/register/', function(req, res, next){
                 {tizenId : req.body.tizenId},
                 {where : {userId : req.body.userId}}
             );
-            res.send({"message" : success});
+            res.send({"message" : "success"});
         }
     })
 
