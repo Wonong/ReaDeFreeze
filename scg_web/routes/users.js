@@ -23,7 +23,7 @@ router.post('/register/', function(req, res, next){
     }).then(function(data){
         if(!data) {
             console.log("null")
-            res.send({"message" : "There is no ID like" +  req.body.userId});
+            res.send({"message" : "There is no ID like " +  req.body.userId});
         }else{
             console.log("not null");
             models.User.update(
