@@ -16,22 +16,24 @@ function loadUser(req,res,next) {
 //냉장고에서 ID로 자신 등록
 router.post('/register/', function(req, res, next){
     console.log(req.body);
-    var userId = models.User.findOne({
+    models.User.findOne({
         where : {
             userId : req.body.userId
         }
-    });
-    if(!userId) {
-        console.log("null")
-        res.render({"message" : "There is no ID like" +  req.body.userId});
-    }else{
-        console.log("not null");
-        models.User.update(
-            {tizenId : req.body.tizenId},
-            {where : {userId : req.body.userId}}
-        );
-        res.render({"message" : success});
-    }
+    }).then(function(data){
+        if(!data) {
+            console.log("null")
+            res.render({"message" : "There is no ID like" +  req.body.userId});
+        }else{
+            console.log("not null");
+            models.User.update(
+                {tizenId : req.body.tizenId},
+                {where : {userId : req.body.userId}}
+            );
+            res.render({"message" : success});
+        }
+    })
+
 
 });
 
