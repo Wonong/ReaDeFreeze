@@ -23,14 +23,14 @@ router.post('/register/', function(req, res, next){
     }).then(function(data){
         if(!data) {
             console.log("null")
-            res.render({"message" : "There is no ID like" +  req.body.userId});
+            res.send({"message" : "There is no ID like" +  req.body.userId});
         }else{
             console.log("not null");
             models.User.update(
                 {tizenId : req.body.tizenId},
                 {where : {userId : req.body.userId}}
             );
-            res.render({"message" : success});
+            res.send({"message" : success});
         }
     })
 
