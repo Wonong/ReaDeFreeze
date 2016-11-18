@@ -101,7 +101,7 @@ router.post('/update/',function(req, res){
            mode : req.body.mode,
            toTime : req.body.toTime,
            device : 'Refrigerator',
-           userId : userId
+           userId : data.userId
        }).then(function(Post){});
    })
 });
