@@ -92,17 +92,26 @@ router.get('/time_list/?*', function(req, res){
 
 //냉장고 설절변경기록 서버에 추기ㅏ
 router.post('/update/',function(req, res){
+    console.log(req.body.tizenId);
    models.User.findOne({
        where : {
            tizenId : req.body.tizenId
        }
    }).then(function(data){
-       models.Post.create({
-           mode : req.body.mode,
-           toTime : req.body.toTime,
-           device : 'Refrigerator',
-           userId : data.userId
-       }).then(function(Post){});
+       console.log(data)
+       if(data){
+           models.Post.create({
+               mode : req.body.mode,
+               toTime : req.body.toTime,
+               device : 'Refrigerator',
+               userId : data.userId
+           }).then(function(Post){
+               res.send({"message" : "success"})
+           });
+       }else{
+           res.send({"message" : "Not connected"})
+       }
+
    })
 });
 
