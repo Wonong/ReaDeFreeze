@@ -79,6 +79,7 @@ router.get('/list2/?*', function(req, res) {
 
 //최근 기록 updated시간이랑 tizenId 보내면 그 시간부터 현재까지에 해당하는 모든 로그 보내기.
 router.get('/time_list/?*', function(req, res){
+    var update = timeChange(req.query.updatedAt);
     models.User.findOne({
         where : {
             tizenId : req.query.tizenId
@@ -89,10 +90,11 @@ router.get('/time_list/?*', function(req, res){
             models.Post.findAll({
                 order : "id DESC",
                 where : {
-                    updatedAt : {$gt : req.query.updatedAt},
+                    toTime : {$gt : update},
                     userId : userId
                 }
             }).then(function(timelineArr){
+                console.log(timelineArr);
                 res.send(timelineArr);
             });
         }else{
