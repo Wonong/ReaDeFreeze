@@ -81,7 +81,6 @@ router.get('/time_list/?*', function(req, res){
                     userId : userId
                 }
             }).then(function(timelineArr){
-                console.log(timelineArr);
                 res.send(timelineArr);
             });
         }else{

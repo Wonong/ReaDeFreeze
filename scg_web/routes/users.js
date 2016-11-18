@@ -16,7 +16,7 @@ function loadUser(req,res,next) {
 //냉장고에서 ID로 자신 등록
 router.post('/register/', function(req, res, next){
     console.log(req.body);
-    models.User.findOne({
+    models.User.findOn3e({
         where : {
             userId : req.body.userId
         }
