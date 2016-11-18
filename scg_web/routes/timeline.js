@@ -90,7 +90,7 @@ router.get('/time_list/?*', function(req, res){
             models.Post.findAll({
                 order : "id DESC",
                 where : {
-                    toTime : {$gt : update},
+                    toTime : {$gt : req.query.updatedAt},
                     userId : userId
                 }
             }).then(function(timelineArr){
