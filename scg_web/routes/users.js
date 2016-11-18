@@ -21,7 +21,7 @@ router.post('/register/', function(req, res, next){
             userId : req.body.userId
         }
     });
-    if(userId == null) {
+    if(!userId) {
         console.log("null")
         res.render({"message" : "There is no ID like" +  req.body.userId});
     }else{
