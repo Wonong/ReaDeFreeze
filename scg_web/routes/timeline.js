@@ -72,17 +72,22 @@ router.get('/time_list/?*', function(req, res){
             tizenId : req.query.tizenId
         }
     }).then(function(data){
-        var userId = data.userId;
-        models.Post.findAll({
-            order : "id DESC",
-            where : {
-                updatedAt : {$gt : req.query.updatedAt},
-                userId : userId
-            }
-        }).then(function(timelineArr){
-            console.log(timelineArr);
-            res.send(timelineArr);
-        });
+        if(data){
+            var userId = data.userId;
+            models.Post.findAll({
+                order : "id DESC",
+                where : {
+                    updatedAt : {$gt : req.query.updatedAt},
+                    userId : userId
+                }
+            }).then(function(timelineArr){
+                console.log(timelineArr);
+                res.send(timelineArr);
+            });
+        }else{
+            res.send({});
+        }
+
     });
 })
 
