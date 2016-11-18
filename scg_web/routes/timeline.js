@@ -92,17 +92,18 @@ router.get('/time_list/?*', function(req, res){
 
 //냉장고 설절변경기록 서버에 추기ㅏ
 router.post('/update/',function(res, req){
-   userId = models.User.findOne({
+   models.User.findOne({
        where : {
            tizenId : req.body.tizenId
        }
-   });
-    models.Post.create({
-        mode : req.body.mode,
-        toTime : req.body.toTime,
-        device : 'Refrigerator',
-        userId : userId
-    }).then(function(Post){});
+   }).then(function(data){
+       models.Post.create({
+           mode : req.body.mode,
+           toTime : req.body.toTime,
+           device : 'Refrigerator',
+           userId : userId
+       }).then(function(Post){});
+   })
 });
 
 module.exports = router;
